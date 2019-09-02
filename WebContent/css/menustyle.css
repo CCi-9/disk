@@ -1,0 +1,21 @@
+@charset "utf-8";
+*{list-style-type:none;}
+.top{font-family:"microsoft yahei",Verdana,"华文细黑","黑体";color:#999;line-height:1.5;-webkit-text-size-adjust:none;}
+.top li{list-style:none;}
+.top img{border:none;}
+.top a{color:#999;text-decoration:none;}
+.top a:hover{color:#0099ff;}
+/* header */
+.top #header{height:8%;position:relative;margin:0 auto;width:960px;background:#e2e2e2;}
+.top #header .logo{height:84px;width:100px;overflow:hidden;line-height:90em;margin:10px 0 0 54px;float:left;display:inline;}
+.top #header .logo a{height:84px;display:block;}
+.top #header .menu{width:700px;float:right;margin:30px 0 0 0;}
+.top #header .menu li{float:left;margin:0 0 0 62px;display:inline;position:relative;font-size:20px;text-transform:uppercase;background:#e2e2e2;}
+.top #header .menu .active a{color:#9C0;}
+.top #header .menu li span{display:block;position:absolute;top:0;left:0;font-size:12px;}
+.top #header .menu li ul{display:none;width:180px;position:absolute;left:0;top:30px;}
+.top #header .menu .about ul{right:47px;left:auto;}
+.top #header .menu li li{text-transform:none;font-size:12px;padding:0 15px 0 0;height:36px;line-height:18px;margin:0;}
+.top #header .menu li li span{display:block;position:absolute;top:0;left:0;white-space:nowrap;}
+.top #header .menu .active li a{color:#999;}
+.top #header .menu .active li a:hover{color:#9C0;}

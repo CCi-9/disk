@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+<constant name="struts.multipart.maxSize" value="20971520000"></constant>
+<constant name="struts.multipart.saveDir" value="/tmp"/>
+    <constant name="struts.devMode" value="false" />
+	<package name="default" extends="struts-default" namespace="/" >
+
+		<global-results>
+			<result name="msg">/WEB-INF/jsp/msg.jsp</result>
+		</global-results>
+
+		<action name="index_*" class="indexAction" method="{1}">
+			<result name="login">/WEB-INF/jsp/login.jsp</result>
+			<result name="menu">/WEB-INF/jsp/menu.jsp</result>
+			<result name="left">/WEB-INF/jsp/left.jsp</result>
+			<result name="right">/WEB-INF/jsp/right.jsp</result>
+			<result name="upload">/WEB-INF/jsp/upload.jsp</result>
+		</action>
+			
+	 	<action name="user_*" class="userAction" method="{1}">
+			<result name="registUser">/WEB-INF/jsp/login.jsp</result>
+			<result name="loginSuccess" type="redirectAction">file_findByUser.action</result>
+		</action>
+
+	 	<action name="test_*" class="testAction" method="{1}">
+		</action>
+
+	 	<action name="file_*" class="fileAction" method="{1}">
+			<result name="findByUser">/WEB-INF/jsp/index.jsp</result>
+			<result name="findByDirname">/WEB-INF/jsp/right.jsp</result>
+			<result name="goBack">/WEB-INF/jsp/right.jsp</result>
+			<result name="getAllfile">/WEB-INF/jsp/right.jsp</result>
+			<result name="refreshPage">/WEB-INF/jsp/right.jsp</result>
+			<result name="createNewFile" type="redirectAction">file_refreshPage.action</result>
+			<result name="deleteSuccess" type="redirectAction">file_refreshPage.action</result>
+			<result name="saveUpload" type="redirectAction">file_refreshPage.action</result>
+			<result name="downloadSuccess" type="stream">
+			     <param name="contentType">application/octet-stream;charset=ISO8859-1</param>
+				<param name="inputName">downLoadStream</param>
+				<param name="contentDisposition">attachment;filename="${downloadFilename}"</param>
+				<param name="bufferSize">4096</param>
+			</result>
+		</action>
+	 
+	</package>
+	<!-- 
+	
+		<package name="action类所在的包" extends="struts-default" namespace="/">
+			<action name="  以后要在浏览器里输入的 .action前缀   "   class="  在bean.xml中配置的action类的id  ">
+				<result name="  action类中方法返回的字符串  " >  要跳到的界面  </result>
+			</action>
+		</package>
+	
+		<package name="test" extends="struts-default" namespace="/">
+			<action name="just" class="testAction1">
+				<result name="test1">/WEB-INF/Test.jsp</result>
+			</action>
+		</package>
+	 -->
+</struts>
